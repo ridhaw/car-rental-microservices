@@ -1,5 +1,7 @@
 # Car Rental — architecture microservices (Spring Boot / Spring Cloud)
 
+[![CI](https://github.com/ridhaw/car-rental-microservices/actions/workflows/ci.yml/badge.svg)](https://github.com/ridhaw/car-rental-microservices/actions/workflows/ci.yml)
+
 Application de location de voitures découpée en microservices : authentification JWT,
 catalogue de voitures, locations et clients, derrière une API Gateway avec découverte
 de services et configuration centralisée. L'ensemble démarre avec Docker Compose.
@@ -43,6 +45,13 @@ de services et configuration centralisée. L'ensemble démarre avec Docker Compo
 
 Java 17 · Spring Boot 3 · Spring Cloud Gateway · Eureka · Spring Cloud Config ·
 Spring Security + JWT (jjwt) · Spring Data JPA · MySQL 8 · Docker Compose
+
+## Intégration continue
+
+À chaque push, GitHub Actions ([`ci.yml`](.github/workflows/ci.yml)) :
+
+1. compile et teste les 6 services en parallèle, avec un conteneur MySQL 8 pour ceux qui ont une base de données ;
+2. construit ensuite toutes les images Docker (`docker compose build`).
 
 ## Lancer le projet
 
